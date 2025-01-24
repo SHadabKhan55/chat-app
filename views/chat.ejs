@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/style/chat.css">
+</head>
+<body>
+    <div class="chat-container" id="container">
+        <div class="chat-header">Chat App</div>
+        <div class="chat-messages" id="messages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="msg" placeholder="Type a message...">
+            <button type="submit" id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const btn = document.getElementById('sendBtn');
+        const msg = document.getElementById('msg');
+        const messagesContainer = document.getElementById('messages');
+
+        const username = prompt('Enter your username:');
+        socket.emit('register-user', username);
+
+        btn.addEventListener('click', () => {
+            const message = msg.value.trim();
+
+            if (message) {
+                socket.emit('user-message', message);
+
+                // Display user message in chat
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('message', 'user');
+                userMessageDiv.innerHTML = `
+                    <div class="text">${message}</div>
+                    <div class="icon">U</div>
+                `;
+                messagesContainer.appendChild(userMessageDiv);
+
+                // Clear the input field
+                msg.value = '';
+            }
+        });
+
+        // Handle incoming messages from the server
+        socket.on('server-message', (serverMessage) => {
+            const serverMessageDiv = document.createElement('div');
+            serverMessageDiv.classList.add('message', 'sender');
+            serverMessageDiv.innerHTML = `
+                <div class="icon">S</div>
+                <div class="text">${serverMessage}</div>
+            `;
+            messagesContainer.appendChild(serverMessageDiv);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style/home.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <h1>My Network</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/viewReq">Requests</a></li>
+      <li><a href="/showfriend">Friends</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <img src="/upload/<%= loggedInUser.image %>" alt="Profile Picture" class="profile-img">
+    <h2 class="profile-name"><%= loggedInUser.name %></h2>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+        <div class="user-cards">
+            <% users.forEach(function(user) { %>
+            <div class="user-card">
+              <img src="/upload/<%= user.image %>" alt="User Profile" class="profile-img-small">
+              <h3 class="user-name"><%= user.name %></h3>
+              <div class="actions">
+                <form action="/sendRequest" method="POST">
+                  <input type="hidden" name="from" value="<%= loggedInUser._id %>">
+                  <input type="hidden" name="to" value="<%= user._id %>">
+                  <% if (requestStatuses[user._id] == 'requested to') { %>
+                    <button type="button" class="action-btn" disabled>Requested</button>
+                    <a href="/cancel/<%= user._id %>" class="cancel-btn">Cancel Request</a>
+                  <% } else { %>
+                    <button type="submit" class="action-btn">Connect</button>
+                  <% } %>
+                </form>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+          
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>friends</title>
+  <link rel="stylesheet" href="style/showFriend.css">
+</head>
+<body>
+  <div class="left-align">
+    <a href="/home">
+      <button class="back">Back</button>
+    </a>
+  </div>
+  
+  <header>
+    <h1>Contacts</h1>
+  </header>
+  <main>
+    <ul class="friend-list">
+      <% filterUser.map(element => { %>
+
+        <li class="friend">
+          <img src="upload/<%= element.image %>" alt="Friend 1" >
+          <div>
+            <h2><%= element.name %></h2>            
+          </div>
+          <div class="btn-rigth">
+            <a href="/chat">
+              <button class="back">chat</button>
+            </a>    
+          </div>
+        </li>      
+        <% }) %>
+    </ul>
+  </main>
+</body>
+</html>

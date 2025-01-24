@@ -1,0 +1,149 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  background-color: #161b22;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 2px solid #30363d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: #58a6ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #161b22;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.friend-list {
+  list-style: none;
+  padding: 0;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #21262d;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.friend:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(88, 166, 255, 0.3);
+}
+
+.friend img {
+  border-radius: 50%;
+  margin-right: 15px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #58a6ff;
+}
+
+.friend div {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.friend h2 {
+  font-size: 1.5rem;
+  color: #f0f6fc;
+}
+
+.friend .btn-rigth {
+  margin-left: auto;
+}
+
+.back {
+  background-color: #58a6ff;
+  color: #0d1117;
+  height: 2.5rem;
+  width: 5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.back:hover {
+  background-color: #1f6feb;
+  transform: scale(1.05);
+}
+
+.left-align {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.left-align a {
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .friend {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .friend img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .friend h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn-rigth {
+    margin-top: 10px;
+    width: 100%;
+    text-align: right;
+  }
+}

@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "678eb3d26c486632c9315dff"
+  },
+  "name": "saqib",
+  "email": "saqib@123",
+  "password": "123",
+  "image": "1737405394070-download.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678eb3e56c486632c9315e01"
+  },
+  "name": "kazim",
+  "email": "kazim@123",
+  "password": "123",
+  "image": "1737405413171-download (1).jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678eb4026c486632c9315e03"
+  },
+  "name": "asif",
+  "email": "asif@123",
+  "password": "123",
+  "image": "1737405442937-download (2).jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678eb4196c486632c9315e05"
+  },
+  "name": "abeed",
+  "email": "abeed@123",
+  "password": "123",
+  "image": "1737405465003-download (3).jpg",
+  "__v": 0
+}]
